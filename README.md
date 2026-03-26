@@ -1,5 +1,4 @@
-```markdown
-# PEF Analytics System
+PEF Analytics System
 
 ¿La política monetaria de EE.UU. pesa más que la economía local en mercados emergentes?
 
@@ -7,7 +6,7 @@ Proyecto personal de data engineering con Azure, arquitectura Medallion y pipeli
 
 ---
 
-## 🎯 Objetivo
+Objetivo
 
 Responder con datos una pregunta que me fascina: ¿quién tiene el poder real en mercados emergentes como Argentina? ¿La política monetaria de EE.UU. (Fed) o las condiciones económicas locales?
 
@@ -15,70 +14,50 @@ Este proyecto es mi campo de entrenamiento para aprender data engineering de ver
 
 ---
 
-## 🧠 Pregunta de investigación
+Pregunta de investigación
 
-> ¿La política monetaria de EE.UU. (Fed) pesa más que la economía local en mercados emergentes como Argentina?
-
----
-
-## 🛠️ Stack tecnológico
-
-| Capa | Tecnología |
-|------|------------|
-| **SO** | Debian 12 en WSL2 |
-| **Cloud** | Microsoft Azure |
-| **Gestión** | Azure CLI |
-| **Orquestación** | Azure Functions (Python) |
-| **Almacenamiento** | Azure Data Lake Storage Gen2 |
-| **Procesamiento** | Python + PySpark |
-| **Base de datos** | Azure SQL Database (por definir) |
-| **Control de versiones** | Git + GitHub |
+¿La política monetaria de EE.UU. (Fed) pesa más que la economía local en mercados emergentes como Argentina?
 
 ---
 
-## 🏗️ Arquitectura (Medallion)
+Stack tecnológico
 
-```
-
-┌─────────────────────────────────────────────────────────────┐
-│                      Fuentes de datos                        │
-│         (World Bank API / FRED / INDEC)                      │
-└─────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────┐
-│  🥉 BRONCE (Raw Data)                                       │
-│  Datos crudos tal cual se extraen de las APIs               │
-│  Formato: JSON / Parquet                                     │
-└─────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────┐
-│  🥈 SILVER (Cleaned Data)                                   │
-│  Datos validados, limpieza de nulos, estandarización        │
-│  Formato: Parquet                                            │
-└─────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────┐
-│  🥇 GOLD (Aggregated Data)                                  │
-│  Datos agregados listos para análisis y consultas SQL       │
-│  Formato: Parquet / Azure SQL                                │
-└─────────────────────────────────────────────────────────────┘
-
-```
+· SO: Debian 12 en WSL2
+· Cloud: Microsoft Azure
+· Gestión: Azure CLI
+· Orquestación: Azure Functions (Python)
+· Almacenamiento: Azure Data Lake Storage Gen2
+· Procesamiento: Python + PySpark
+· Base de datos: Azure SQL Database (por definir)
+· Control de versiones: Git + GitHub
 
 ---
 
-## 📁 Estructura del proyecto
+Arquitectura (Medallion)
 
-```
+Fuentes de datos (World Bank API / FRED / INDEC)
+
+Bronce (Raw Data)
+Datos crudos tal cual se extraen de las APIs
+Formato: JSON / Parquet
+
+Silver (Cleaned Data)
+Datos validados, limpieza de nulos, estandarización
+Formato: Parquet
+
+Gold (Aggregated Data)
+Datos agregados listos para análisis y consultas SQL
+Formato: Parquet / Azure SQL
+
+---
+
+Estructura del proyecto
 
 PEF-Analytics-System/
 ├── src/
 │   ├── ingest/           # Scripts de ingesta desde APIs
-│   ├── transform/        # Transformaciones (bronce → plata)
-│   ├── aggregate/        # Agregaciones (plata → oro)
+│   ├── transform/        # Transformaciones (bronce a plata)
+│   ├── aggregate/        # Agregaciones (plata a oro)
 │   └── utils/            # Funciones auxiliares
 ├── data/
 │   ├── bronze/           # Datos crudos
@@ -91,25 +70,21 @@ PEF-Analytics-System/
 ├── LICENSE
 └── README.md
 
-```
+---
+
+Estado actual del proyecto
+
+Configuración de entorno (Debian + WSL2 + Azure CLI): Completado
+Resource Group y Storage Account: Completado
+Function App configurada: Completado
+Script de ingesta desde API: En desarrollo
+Transformación a capa plata: Pendiente
+Agregación a capa oro: Pendiente
+Análisis y conclusiones: Pendiente
 
 ---
 
-## 📊 Estado actual del proyecto
-
-| Etapa | Estado |
-|-------|--------|
-| Configuración de entorno (Debian + WSL2 + Azure CLI) | ✅ Completado |
-| Resource Group y Storage Account | ✅ Completado |
-| Function App configurada | ✅ Completado |
-| Script de ingesta desde API | 🔄 En desarrollo |
-| Transformación a capa plata | ⏳ Pendiente |
-| Agregación a capa oro | ⏳ Pendiente |
-| Análisis y conclusiones | ⏳ Pendiente |
-
----
-
-## 🚀 Próximos pasos
+Próximos pasos
 
 1. Escribir script de ingesta con Python (requests + Azure SDK)
 2. Subir datos al contenedor bronce
@@ -119,47 +94,41 @@ PEF-Analytics-System/
 
 ---
 
-## 🧪 Cómo ejecutar el proyecto (en desarrollo)
+Cómo ejecutar el proyecto (en desarrollo)
 
-```bash
-# Clonar el repositorio
 git clone https://github.com/dalmirorivaderacreator/PEF-Analytics-System.git
 cd PEF-Analytics-System
 
-# Crear entorno virtual
 python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+source venv/bin/activate   # En Windows: venv\Scripts\activate
 
-# Instalar dependencias
 pip install -r requirements.txt
 
-# Configurar variables de entorno (Azure credentials)
 cp .env.example .env
-# Editar .env con tus credenciales
 
-# Ejecutar ingesta
+Editar .env con tus credenciales de Azure
+
 python src/ingest/world_bank_ingest.py
-```
 
 ---
 
-📌 Aprendizajes hasta ahora
+Aprendizajes hasta ahora
 
-Este proyecto es mi verdadera escuela. Cada línea de código, cada error, cada solución queda registrada acá. No es un proyecto de curso ni generado por IA. Es 100% mío.
+Este proyecto es mi verdadera escuela. Cada línea de código, cada error, cada solución queda registrada acá. No es un proyecto de curso ni generado por IA. Es 100 por ciento mío.
 
 ---
 
-📄 Licencia
+Licencia
 
 MIT License. Ver el archivo LICENSE para más detalles.
 
 ---
 
-👨‍💻 Autor
+Autor
 
 Dalmiro Rivadera
 Data Engineer en formación | Azure | Python | Linux
 
-GitHub • LinkedIn
+GitHub: https://github.com/dalmirorivaderacreator
+LinkedIn: https://linkedin.com/in/dalmirorivadera
 
-```
