@@ -51,24 +51,29 @@ Formato: Parquet / Azure SQL
 
 ---
 
-Estructura del proyecto
+## Estructura del proyecto
 
-PEF-Analytics-System/
-├── src/
-│   ├── ingest/
-│   ├── transform/
-│   ├── aggregate/
-│   └── utils/
-├── data/
-│   ├── bronze/
-│   ├── silver/
-│   └── gold/
-├── notebooks/
-├── tests/
-├── .gitignore
-├── requirements.txt
-├── LICENSE
-└── README.md
+```mermaid
+graph TD
+    PEF[PEF-Analytics-System/]
+    
+    PEF --> SRC[src/]
+    PEF --> DATA[data/]
+    PEF --> NOTE[notebooks/]
+    PEF --> TESTS[tests/]
+    PEF --> GIT[.gitignore]
+    PEF --> REQ[requirements.txt]
+    PEF --> LIC[LICENSE]
+    PEF --> READM[README.md]
+    
+    SRC --> INGEST[ingest/]
+    SRC --> TRANSFORM[transform/]
+    SRC --> AGGREGATE[aggregate/]
+    SRC --> UTILS[utils/]
+    
+    DATA --> BRONZE[bronze/]
+    DATA --> SILVER[silver/]
+    DATA --> GOLD[gold/]
   
 ---
 
