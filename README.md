@@ -51,10 +51,9 @@ Formato: Parquet / Azure SQL
 
 ---
 
-## Estructura del proyecto
+Estructura del proyecto
 
-```mermaid
-graph TD
+
     PEF[PEF-Analytics-System/]
     
     PEF --> SRC[src/]
