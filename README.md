@@ -53,22 +53,22 @@ Formato: Parquet / Azure SQL
 
 Estructura del proyecto
 
-· PEF-Analytics-System/
-  · src/
-    · ingest/
-    · transform/
-    · aggregate/
-    · utils/
-  · data/
-    · bronze/
-    · silver/
-    · gold/
-  · notebooks/
-  · tests/
-  · .gitignore
-  · requirements.txt
-  · LICENSE
-  · README.md
+PEF-Analytics-System/
+├── src/
+│   ├── ingest/
+│   ├── transform/
+│   ├── aggregate/
+│   └── utils/
+├── data/
+│   ├── bronze/
+│   ├── silver/
+│   └── gold/
+├── notebooks/
+├── tests/
+├── .gitignore
+├── requirements.txt
+├── LICENSE
+└── README.md
   
 ---
 
