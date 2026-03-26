@@ -69,6 +69,7 @@ Estructura del proyecto
   · requirements.txt
   · LICENSE
   · README.md
+  
 ---
 
 Estado actual del proyecto
